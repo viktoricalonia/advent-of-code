@@ -20,6 +20,8 @@ class GameExpression: BaseExpression {
   override func interpret(context: Context) {
     let gameComponent = phrase.components(separatedBy: ":")
 
+    guard gameComponent.count == 2 else { return }
+
     let gameIdPhrase = gameComponent[0]
     let gameIdExpression = GameIdExpression(phrase: gameIdPhrase)
 

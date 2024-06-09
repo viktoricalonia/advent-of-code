@@ -1,5 +1,5 @@
-@testable import aoc_day2
 import XCTest
+@testable import aoc_day2
 
 final class aoc_day2Tests: XCTestCase {
   func testNumberExpression() {
@@ -85,7 +85,8 @@ final class aoc_day2Tests: XCTestCase {
   func testGameSetDrawExpression() {
     let game = NullGame()
 
-    GameSetExpression(phrase: "1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue").interpret(context: game)
+    GameSetExpression(phrase: "1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue")
+      .interpret(context: game)
 
     XCTAssertEqual(game.called, [
       .setColor(color: .blue), .addCount(count: 1),
@@ -144,8 +145,6 @@ final class aoc_day2Tests: XCTestCase {
   }
 
   func testGameExpression() {
-    let game = NullGame()
-
     let input = """
     Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
     Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
@@ -154,7 +153,7 @@ final class aoc_day2Tests: XCTestCase {
     Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
     """
 
-    let sum  = input
+    let sum = input
       .components(separatedBy: .newlines)
       .compactMap { makeGame(line: $0) }
       .filter { $0.isPossible(redCount: 12, greenCount: 13, blueCount: 14) }
@@ -162,6 +161,17 @@ final class aoc_day2Tests: XCTestCase {
       .reduce(0, +)
 
     XCTAssertEqual(sum, 8)
+  }
+
+  func testGamePower() {
+    let game = """
+    Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+    """
+
+    let gameContext = NullGame()
+    GameInterpreter(context: gameContext).interpret(phrase: game)
+
+    XCTAssertEqual(gameContext.power, 48)
   }
 }
 
@@ -202,7 +212,11 @@ class NullGame: Game {
   }
 
   override func isPossible(redCount: UInt, greenCount: UInt, blueCount: UInt) -> Bool {
-    let isPossible = super.isPossible(redCount: redCount, greenCount: greenCount, blueCount: blueCount)
+    let isPossible = super.isPossible(
+      redCount: redCount,
+      greenCount: greenCount,
+      blueCount: blueCount
+    )
     called.append(.isPossible(redCount: redCount, greenCount: greenCount, blueCount: blueCount))
     return isPossible
   }

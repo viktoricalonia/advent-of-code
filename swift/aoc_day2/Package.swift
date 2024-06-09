@@ -22,7 +22,8 @@ let package = Package(
       name: "aoc_day2",
       dependencies: [
         .product(name: "ArgumentParser", package: "swift-argument-parser"),
-      ]
+      ],
+      resources: [.copy("input.txt")]
     ),
     .testTarget(
       name: "aoc_day2Tests",

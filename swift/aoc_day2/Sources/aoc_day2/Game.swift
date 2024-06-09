@@ -2,6 +2,7 @@ import Foundation
 
 protocol GameProtocol: Context {
   var gameId: UInt { get }
+  var power: UInt { get }
   func isPossible(redCount: UInt, greenCount: UInt, blueCount: UInt) -> Bool
 }
 
@@ -13,6 +14,10 @@ class Game: GameProtocol {
   private(set) var redCounts: [UInt] = []
   private(set) var greenCounts: [UInt] = []
   private(set) var blueCounts: [UInt] = []
+
+  var power: UInt {
+    (redCounts.max() ?? 0) * (greenCounts.max() ?? 0) * (blueCounts.max() ?? 0)
+  }
 
   func isPossible(redCount: UInt, greenCount: UInt, blueCount: UInt) -> Bool {
     (redCounts.max() ?? 0) <= redCount &&

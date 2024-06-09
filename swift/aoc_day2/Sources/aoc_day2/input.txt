@@ -27,9 +27,6 @@ Game 26: 11 green, 2 red; 5 blue, 4 red; 1 green, 6 blue, 3 red; 9 red, 7 blue; 
 Game 27: 10 red, 8 blue, 7 green; 6 green, 7 blue; 4 red, 10 green, 9 blue; 9 red, 2 green, 1 blue; 11 blue, 15 red, 9 green
 Game 28: 3 blue, 2 red, 8 green; 3 red, 10 green; 11 green, 1 blue; 5 blue, 6 green, 7 red; 3 blue, 2 green
 Game 29: 18 red, 1 blue; 3 red, 4 blue, 7 green; 1 blue, 16 green, 2 red; 3 blue, 6 green, 15 red; 1 red, 1 blue; 17 red, 6 green
-Game 30: 10 red, 6 blue, 13 green; 2 green, 10 red, 4 blue; 4 red, 2 green, 2 blue
-Game 31: 5 red, 13 green, 5 blue; 5 green, 12 blue, 5 red; 5 red, 3 green, 5 blue; 2 green, 3 red, 14 blue
-Game 32: 2 blue, 14 red, 13 green; 11 red, 3 green, 1 blue; 9 red, 2 blue, 2 green; 5 blue, 3 red, 2 green; 4 blue, 8 green, 6 red; 12 red, 4 green, 5 blue
 Game 33: 1 green, 15 blue; 1 red, 4 blue; 1 red, 1 green, 5 blue
 Game 34: 1 green, 2 blue, 3 red; 11 red, 10 blue; 6 blue, 3 red
 Game 35: 2 blue, 3 red, 1 green; 1 green, 9 blue, 8 red; 2 blue, 5 red; 2 green, 2 red, 2 blue; 1 red, 10 blue; 5 red, 9 blue

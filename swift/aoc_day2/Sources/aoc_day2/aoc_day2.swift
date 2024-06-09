@@ -60,14 +60,25 @@ struct Main: ParsableCommand {
   @Option(help: "green count to check")
   var blue: UInt = 14
 
-  @Argument(help: "Input text")
-  var input: String
-
   func run() {
-    print("Sum Of Possible Games: \(sumOfPossibleGames())")
+    let input = readInputFile()
+    print("Sum Of Possible Games: \(sumOfPossibleGames(input: input))")
+    print("Answer2: \(sumOfPowerInGames(input: input))")
   }
 
-  private func sumOfPossibleGames() -> UInt {
+  private func readInputFile() -> String {
+    if let fileURL = Bundle.module.url(forResource: "input", withExtension: "txt") {
+      do {
+        let text2 = try String(contentsOf: fileURL, encoding: .utf8)
+        return text2.trimmingCharacters(in: .whitespacesAndNewlines)
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+    return ""
+  }
+
+  private func sumOfPossibleGames(input: String) -> UInt {
     let gameIds = input
       .components(separatedBy: .newlines)
       .compactMap { makeGame(line: $0) }
@@ -78,6 +89,17 @@ struct Main: ParsableCommand {
     let sumOfGameId = gameIds.reduce(0, +)
 
     return sumOfGameId
+  }
+
+  private func sumOfPowerInGames(input: String) -> UInt {
+    let powers = input
+      .components(separatedBy: .newlines)
+      .compactMap { makeGame(line: $0) }
+      .compactMap { $0.power }
+
+    let sumOfPower = powers.reduce(0, +)
+
+    return sumOfPower
   }
 }
 
